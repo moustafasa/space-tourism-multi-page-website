@@ -1,0 +1,19 @@
+// font size
+$fs-200: calc(14px / 16px) +#{"rem"};
+$fs-300: 1rem;
+$fs-400: calc(18px / 16px) +#{"rem"};
+$fs-500: calc(28px / 16px) +#{"rem"};
+$fs-600: calc(32px / 16px) +#{"rem"};
+$fs-700: calc(56px / 16px) +#{"rem"};
+$fs-800: calc(100px / 16px) +#{"rem"};
+$fs-900: calc(150px / 16px) +#{"rem"};
+
+// font family
+$ff-sans-serif: "Barlow", sans-serif;
+$ff-condensed: "Barlow Semi Condensed", sans-serif;
+$ff-serif: "Bellefair", serif;
+
+// letter spacing
+$ls-200: 2.35px;
+$ls-300: 2.7px;
+$ls-500: 4.76px;

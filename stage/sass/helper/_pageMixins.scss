@@ -1,0 +1,14 @@
+@use "./globalMixins" as *;
+@mixin setBackground($page) {
+  $url: "../assets/#{$page}/background-#{$page}-";
+  background-size: cover;
+  @include medias("more medium") {
+    background-image: url($url + "desktop.jpg");
+  }
+  @include medias("small") {
+    background-image: url($url + "tablet.jpg");
+  }
+  @include medias("mobile") {
+    background-image: url($url + "mobile.jpg");
+  }
+}

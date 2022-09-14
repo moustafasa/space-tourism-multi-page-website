@@ -1,0 +1,17 @@
+header
+    if(page!=='index')
+        .container
+            .logo 
+                img(src="./assets/shared/logo.svg", alt="")
+            h1 design system
+    else
+        .logo 
+            img(src="./assets/shared/logo.svg", alt="")
+        .bars 
+            img(class='burger' src="./assets/shared/icon-hamburger.svg", alt="")
+            img(class='close' src="./assets/shared/icon-close.svg", alt="")
+        nav.f-300 
+            a(href='#')  #[span 00] home    
+            a(href='#')  #[span 01] destination
+            a(href='#')  #[span 02] crew
+            a(href='#')  #[span 03] technology

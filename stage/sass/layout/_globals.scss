@@ -1,0 +1,99 @@
+@use "../variables/fonts" as *;
+@use "../helper/globalMixins" as *;
+@use "../variables/dimensions" as *;
+@use "../variables/colors" as *;
+@use "../helper/pageMixins" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Semi+Condensed&family=Bellefair&display=swap");
+/* start global rules*/
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh;
+  padding-top: $body-padding-top-large;
+  @include medias("mobile") {
+    padding-top: $body-padding-top-mobile;
+  }
+  @include medias("small") {
+    padding-top: $body-padding-top-small;
+  }
+  color: rgb($white-color);
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+// start container roles
+.container {
+  @include one-value-more-properties(15px, padding-left, padding-right);
+  @include one-value-more-properties(auto, margin-left, margin-right);
+  @include medias("mobile") {
+    padding-inline: 24px;
+  }
+}
+
+@include medias("mobile") {
+  /* Small Devices => Landscape Phones */
+  .container {
+    max-width: 540px;
+  }
+}
+@include medias("small") {
+  /* Medium Devices => Tablets */
+  .container {
+    max-width: 720px;
+  }
+}
+@include medias("medium") {
+  /* Desktops */
+  .container {
+    max-width: 960px;
+  }
+}
+@include medias("large") {
+  /* Large Screens */
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+.clear {
+  clear: both;
+}
+
+$list: ("home", "destination", "crew", "technology");
+@each $var in $list {
+  body[page="#{$var}"] {
+    @include setBackground($var);
+    section:not(#{"." + $var}) {
+      display: none;
+    }
+  }
+}
+/* end global rules  */

@@ -1,0 +1,238 @@
+@use "../variables/fonts" as *;
+@use "../helper/globalMixins" as *;
+
+@mixin f-900 {
+  font: {
+    size: $fs-900;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(172px);
+}
+@mixin f-800 {
+  font: {
+    size: $fs-800;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(115px);
+}
+@mixin f-700 {
+  font: {
+    size: $fs-700;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(64px);
+}
+@mixin f-600 {
+  font: {
+    size: $fs-600;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(37px);
+}
+@mixin f-500-ls {
+  font: {
+    size: $fs-500;
+    family: $ff-condensed;
+    weight: 400;
+  }
+  line-height: getByRem(34px);
+  letter-spacing: $ls-500;
+}
+@mixin f-500 {
+  font: {
+    size: $fs-500;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(32px);
+}
+@mixin f-400 {
+  font: {
+    size: $fs-400;
+    family: $ff-sans-serif;
+    weight: 400;
+  }
+  line-height: getByRem(32px);
+}
+@mixin f-300 {
+  font: {
+    size: $fs-300;
+    family: $ff-condensed;
+    weight: 400;
+  }
+  line-height: getByRem(19px);
+  letter-spacing: $ls-300;
+}
+@mixin f-200 {
+  font: {
+    size: $fs-200;
+    family: $ff-condensed;
+    weight: 400;
+  }
+  line-height: getByRem(17px);
+  letter-spacing: $ls-200;
+}
+
+.f-900 {
+  font: {
+    size: $fs-900;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(172px);
+  @include medias("less large") {
+    line-height: getByRem(150px);
+  }
+  @include medias("mobile") {
+    font-size: 80px;
+    line-height: getByRem(100px);
+  }
+}
+.f-800 {
+  font: {
+    size: $fs-800;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(115px);
+  @include medias("mobile") {
+    font-size: $fs-700;
+    line-height: getByRem(64px);
+  }
+  @include medias("small") {
+    font-size: getByRem(80px);
+    line-height: getByRem(92px);
+  }
+}
+.f-700 {
+  font: {
+    size: $fs-700;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(64px);
+  @include medias("small") {
+    font-size: getByRem(40px);
+    line-height: getByRem(46px);
+  }
+  @include medias("mobile") {
+    font-size: getByRem(24px);
+    line-height: getByRem(28px);
+  }
+}
+.f-600 {
+  font: {
+    size: $fs-600;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(37px);
+  &.main-btn {
+    letter-spacing: getByRem(2px);
+    @include medias("mobile") {
+      font-size: getByRem(20px);
+      line-height: getByRem(23px);
+      letter-spacing: getByRem(1.25px);
+    }
+  }
+  @include medias("small") {
+    &.slider-2,
+    &.role {
+      font-size: getByRem(24px);
+      line-height: getByRem(28px);
+    }
+    &.slider-2 {
+      letter-spacing: getByRem(1.5px);
+    }
+  }
+  @include medias("mobile") {
+    &.role,
+    &.slider-2 {
+      font-size: getByRem(16px);
+      line-height: getByRem(18px);
+    }
+    &.slider-2 {
+      letter-spacing: getByRem(1px);
+    }
+  }
+}
+.f-500-ls {
+  font: {
+    size: $fs-500;
+    family: $ff-condensed;
+    weight: 400;
+  }
+  line-height: getByRem(34px);
+  letter-spacing: $ls-500;
+  @include medias("mobile") {
+    font-size: $fs-300;
+    line-height: getByRem(19px);
+    letter-spacing: $ls-300;
+  }
+  @include medias("small") {
+    font-size: getByRem(20px);
+    line-height: getByRem(24px);
+    letter-spacing: 3.375px;
+  }
+}
+.f-500 {
+  font: {
+    size: $fs-500;
+    family: $ff-serif;
+    weight: 400;
+  }
+  line-height: getByRem(32px);
+}
+.f-400 {
+  font: {
+    size: $fs-400;
+    family: $ff-sans-serif;
+    weight: 400;
+  }
+  line-height: getByRem(32px);
+  @include medias("mobile") {
+    font-size: getByRem(15px);
+    line-height: getByRem(25px);
+  }
+  @include medias("small") {
+    font-size: getByRem(16px);
+    line-height: getByRem(28px);
+  }
+}
+.f-300 {
+  font: {
+    size: $fs-300;
+    family: $ff-condensed;
+    weight: 400;
+  }
+  line-height: getByRem(19px);
+  letter-spacing: $ls-300;
+  @include medias("mobile") {
+    &.tabs,
+    &.open-sent {
+      font-size: $fs-200;
+      line-height: getByRem(17px);
+      letter-spacing: $ls-200;
+    }
+  }
+  @include medias("small") {
+    &:not(.tabs) {
+      font-size: $fs-200;
+      line-height: getByRem(17px);
+      letter-spacing: $ls-200;
+    }
+  }
+}
+.f-200 {
+  font: {
+    size: $fs-200;
+    family: $ff-condensed;
+    weight: 400;
+  }
+  line-height: getByRem(17px);
+  letter-spacing: $ls-200;
+}

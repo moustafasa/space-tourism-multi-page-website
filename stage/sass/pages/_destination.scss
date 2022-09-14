@@ -1,0 +1,131 @@
+@use "../helper/globalMixins" as *;
+@use "../variables/colors" as *;
+@use "../components/fonts" as *;
+body[page="destination"] {
+  padding-bottom: 58px;
+  @include medias("small") {
+    padding-bottom: 62px;
+  }
+  @include medias("more smal") {
+    padding-bottom: 118px;
+  }
+  section.destination {
+    .container {
+      padding-top: 24px;
+      text-align: center;
+      @include medias("small") {
+        padding-top: 40px;
+      }
+      @include medias("more small") {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        padding-top: 76px;
+      }
+
+      .left {
+        h2.section-head {
+          @include medias("small") {
+            text-align: left;
+          }
+        }
+        .img {
+          @include one-value-more-properties(170px, width, height);
+          margin: 32px auto 26px;
+          @include medias("small") {
+            margin: 60px auto 53px;
+            @include one-value-more-properties(300px, width, height);
+          }
+          @include medias("more small") {
+            margin: 97px 0 0 63.5px;
+          }
+          @include medias("large") {
+            @include one-value-more-properties(445px, width, height);
+          }
+          @include medias("medium") {
+            @include one-value-more-properties(300px, width, height);
+          }
+        }
+      }
+      .right {
+        @include medias("large") {
+          width: 445px;
+        }
+        @include medias("more small") {
+          margin-top: 64px;
+        }
+        @include medias("medium") {
+          width: 400px;
+        }
+        .tabs {
+          @include medias("more small") {
+            width: fit-content;
+          }
+        }
+        .content {
+          margin-top: 20px;
+          @include medias("small") {
+            margin-top: 32px;
+          }
+          h2.name {
+            text-transform: uppercase;
+          }
+          p.description {
+            padding-bottom: 32px;
+            padding-inline: 1px;
+            border-bottom: 1px solid rgb($border-color);
+            margin-top: 1px;
+            margin-bottom: 32px;
+            @include medias("small") {
+              margin-top: 8px;
+              padding-bottom: 49px;
+              margin-bottom: 28px;
+              max-width: 573px;
+              margin-inline: auto;
+            }
+          }
+          p,
+          span {
+            color: rgb($second-color);
+          }
+          .measures {
+            @include medias("more mobile") {
+              display: flex;
+            }
+            @include medias("more small") {
+              justify-content: flex-start;
+            }
+            @include medias("small") {
+              justify-content: space-evenly;
+            }
+            div {
+              @include medias("mobile") {
+                &:not(:last-of-type) {
+                  margin-bottom: 32px;
+                }
+              }
+              @include medias("small") {
+                margin-bottom: 0;
+              }
+              @include medias("more small") {
+                &:not(:last-of-type) {
+                  margin-right: 79px;
+                }
+              }
+              span {
+                text-transform: uppercase;
+                display: block;
+              }
+              .label {
+                margin-bottom: 12px;
+              }
+              .num {
+                color: rgb($white-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

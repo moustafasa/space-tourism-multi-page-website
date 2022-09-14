@@ -1,0 +1,106 @@
+@use "../variables/colors" as *;
+@use "../helper/globalMixins" as *;
+body[page="crew"] {
+  overflow: hidden;
+  padding-bottom: 104px;
+  @include medias("more small") {
+    padding-bottom: 94px;
+  }
+  .crew {
+    .container {
+      text-align: center;
+      padding-top: 24px;
+      @include medias("more small") {
+        text-align: left;
+      }
+      .section-head {
+        @include medias("small") {
+          text-align: left;
+        }
+      }
+      .right {
+        height: 223px;
+        margin: 32px auto;
+        border-bottom: 1px solid rgb($border-color);
+        @include medias("mobile") {
+          max-width: 327px;
+        }
+        @include medias("more mobile") {
+          position: absolute;
+          border: none;
+          margin: 0;
+        }
+        @include medias("more small") {
+          right: 130px;
+          bottom: -10px;
+          width: 568.07px;
+          height: 712px;
+        }
+        @include medias("medium") {
+          right: 0;
+        }
+        @include medias("small") {
+          bottom: -40px;
+          @include centerbyposition("horizontal", null);
+          width: 456.37px;
+          height: 465px;
+        }
+        img {
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+      .left {
+        position: relative;
+        padding-top: 40px;
+        @include medias("small") {
+          padding-top: 60px;
+          padding-bottom: 50px;
+        }
+        @include medias("more small") {
+          padding-top: 154px;
+        }
+        .content {
+          .role {
+            text-transform: uppercase;
+            opacity: 49.51%;
+          }
+          .name {
+            margin: 8px 0 16px;
+            text-transform: uppercase;
+            @include medias("more small") {
+              margin: 15px 0 27px;
+            }
+          }
+          .bio {
+            margin: auto;
+            color: rgb($second-color);
+            @include medias("small") {
+              max-width: 458px;
+            }
+            @include medias("more small") {
+              max-width: 444px;
+              margin: 0;
+            }
+          }
+        }
+        .slider-1 {
+          cursor: pointer;
+          width: fit-content;
+          @include medias("more small") {
+            margin-top: 120px;
+          }
+          @include medias("less small") {
+            @include centerbyposition("horizontal", absolute);
+          }
+          @include medias("mobile") {
+            top: 0;
+          }
+          @include medias("small") {
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

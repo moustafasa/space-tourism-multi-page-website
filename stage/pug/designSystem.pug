@@ -1,0 +1,96 @@
+-let page ='design'
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title design system
+        link(rel="stylesheet", href="./css/normalise.css")
+        link(rel="stylesheet", href="./css/designSystem.css")
+    body 
+        include ./layout/header.pug
+        section.colors 
+            .container
+                h2.section-head #[span 01] colors
+                .color-cont 
+                    .color
+                        .box #0b0d17 
+                        p.rgp rgb #[span 11,13,23]  
+                        p.hsl hsl #[span 230&deg;,35%,7%]
+                    .color
+                        .box #d0d6f9 
+                        p.rgp rgb #[span 208,214,249]  
+                        p.hsl hsl #[span 231&deg;,77%,90%]
+                    .color
+                        .box #ffffff 
+                        p.rgp rgb #[span 255,255,255]  
+                        p.hsl hsl #[span 0&deg;,0%,100%]
+        section.fonts 
+            .container 
+                h2.section-head #[span 02] typography
+                -
+                    let boxes=[
+                                {'family':'bellefair Regular','size':'150px','ex':'earth','class':900},
+                                {'family':'bellefair Regular','size':'100px','ex':'venus','class':800},
+                                {'family':'bellefair Regular','size':'56px','ex':'jupiter & saturn','class':700},
+                                {'family':'bellefair Regular','size':'32px','ex':'uranus, neptune, & pluto','class':600},
+                                {'family':'barlow condensed regular','size':'28px','spacing':'4.75','ex':'so, you want to travel to space','class':'500-ls'},
+                                {'family':'bellefair Regular','size':'28px','ex':'384.400 km','class':500,'head':'subheading 1 -'},
+                                {'family':'barlow condensed regular','size':'14px','spacing':'2.35','ex':'avg, distance','class':200,'head':'subheading 2 -'},
+                                {'family':'barlow condensed regular','size':'16px','spacing':'2.7','ex':'europa','class':300,'head':'nav Text -'},
+                                {'ex':'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. ',
+                                 'class':'400',
+                                 'head':'body text'},
+                              ];
+                    let i = 0;
+                .font-cont 
+                    .left
+                        -for(let i=0;i<5;i++)
+                            -let box =boxes[i];
+                            .box
+                                p.type #{box['head'] || `heading ${i+1} -` } #{box['family']?box['family'] +' -':''} #{box['size']} #{box['spacing']?' - ' + box['spacing'] +'character space':''}
+                                p.example(class='f-'+box['class']) #{box['ex']}
+                    .right 
+                        -for(let i=5;i<boxes.length;i++)
+                            -let box =boxes[i];
+                            .box
+                                p.type #{box['head'] || `heading ${i+1} -` } #{box['family']?box['family'] +' -':''} #{box['size']} #{box['spacing']?' - ' + box['spacing'] +'character space':''}
+                                p.example(class='f-'+box['class']) #{box['ex']}
+
+        section.interactive 
+            .container 
+                h2.section-head 03 #[span interactive elements]
+                .inter-cont 
+                    .nav-cont 
+                        ul.nav 
+                            li.active 00 active 
+                            li.hover 01 hovered 
+                            li 02 idle 
+                        p.title different states of navigation bar 
+                    .left 
+                        .button 
+                            .main-btn explore 
+                            p.title landing page main button - idle
+                        .button.hoverd 
+                            .main-btn explore 
+                            p.title landing page main button - idle
+                    .right 
+                        .tabs-cont 
+                            ul.tabs 
+                                li.active moon 
+                                li.hover mars 
+                                li europa 
+                            p.title tabs (active, hover, &amp; idle)
+                        .slider1-cont 
+                            ul.slider-1 
+                                li.active 
+                                li.hover 
+                                li 
+                            p.title slider 1 states (active, hover, &amp; idle)
+                        .slider2-cont 
+                            ul.slider-2 
+                                li.active 1
+                                li.hover 2
+                                li 3
+                            p.title slider 2 states (active, hover, &amp; idle)

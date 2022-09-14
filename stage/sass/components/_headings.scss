@@ -1,0 +1,13 @@
+@use "../variables/fonts" as *;
+@use "../components/fonts" as *;
+h2.section-head {
+  @extend .f-500-ls;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  span {
+    display: inline-block;
+    opacity: 0.25;
+    margin-right: 28px;
+  }
+}

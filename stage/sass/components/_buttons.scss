@@ -1,0 +1,181 @@
+@use "../helper/globalMixins" as *;
+@use "../variables/colors" as *;
+@use "../variables/fonts" as *;
+@use "../components/fonts" as *;
+
+%nav {
+  display: flex;
+  justify-content: center;
+  a,
+  li {
+    display: block;
+    text-transform: uppercase;
+    position: relative;
+    color: rgb($white-color);
+    &::after {
+      content: "";
+      transition: 0.5s;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: rgb($white-color);
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+    &.active::after {
+      opacity: 1;
+    }
+    &:hover:after {
+      opacity: 50.21%;
+    }
+  }
+}
+
+nav {
+  background-color: rgba(rgb($second-color), 4%);
+  -moz-backdrop-filter: blur(81.5485px);
+  -webkit-backdrop-filter: blur(81.5485px);
+  -ms-backdrop-filter: blur(81.5485px);
+  -o-backdrop-filter: blur(81.5485px);
+  backdrop-filter: blur(81.5485px);
+  @extend %nav;
+  @include medias("mobile") {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  a {
+    padding: 39px 0px 38px;
+
+    word-spacing: 14px;
+    @include medias("small") {
+      padding-inline: 2px;
+      & {
+        @include f-200;
+      }
+      span {
+        display: none;
+      }
+    }
+    &:not(:last-of-type) {
+      margin-right: 48px;
+      @include medias("small") {
+        margin-right: 37px;
+      }
+    }
+    @include medias("mobile") {
+      margin: 0;
+      padding: 0px 0 20px;
+      width: 100%;
+      &:not(:last-of-type) {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+.tabs {
+  @extend %nav;
+  li {
+    cursor: pointer;
+    padding: 12px 3px;
+    &:not(:last-of-type) {
+      margin-right: 35px;
+      @include medias("mobile") {
+        margin-right: 27px;
+      }
+    }
+  }
+}
+.main-btn {
+  background-color: rgb($white-color);
+  color: rgb($first-color);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+  cursor: pointer;
+  @include circle(274px);
+  @include centerbyflex("both");
+  @include medias("mobile") {
+    @include one-value-more-properties(150px, width, height);
+  }
+  @include medias("small") {
+    @include one-value-more-properties(242px, width, height);
+  }
+  // &::after {
+  //   content: "";
+  //   @include centerbyposition("both", absolute);
+  //   @include circle(450px);
+  //   background-color: rgb($white-color);
+  //   opacity: 10.36%;
+  //   z-index: -1;
+  //   display: none;
+  // }
+  &:hover {
+    // margin-bottom: calc(88px + 13px);
+    box-shadow: 0 0 0px 88px rgba(rgb($white-color), 10.36%);
+    @include medias("small") {
+      box-shadow: 0 0 0px 70px rgba(rgb($white-color), 10.36%);
+    }
+    @include medias("mobile") {
+      box-shadow: 0 0 0px 46.5px rgba(rgb($white-color), 10.36%);
+    }
+  }
+}
+.slider-1 {
+  @include centerbyflex("horizontal");
+  li {
+    @include circle(15px);
+    @include medias("less small") {
+      @include one-value-more-properties(10px, width, height);
+    }
+    background-color: rgb($white-color);
+    opacity: 17.44%;
+    transition: 0.5s;
+    &:not(:last-of-type) {
+      margin-right: 24px;
+      @include medias("less small") {
+        margin-right: 16px;
+      }
+    }
+    &.active {
+      opacity: 100%;
+    }
+    &:hover {
+      opacity: 50.01%;
+    }
+  }
+}
+.slider-2 {
+  @include medias("less small") {
+    display: flex;
+    column-gap: 16px;
+    justify-content: center;
+  }
+  li {
+    @include circle(80px);
+    @include medias("small") {
+      @include one-value-more-properties(60px, width, height);
+    }
+    @include medias("mobile") {
+      @include one-value-more-properties(40px, width, height);
+    }
+    @include centerbyflex("both");
+    cursor: pointer;
+    border: 1px solid rgba(rgb($white-color), 25%);
+    letter-spacing: 2px;
+    &:not(:last-of-type) {
+      @include medias("more small") {
+        margin-block-end: 32px;
+      }
+    }
+    &.active {
+      background-color: rgb($white-color);
+      color: rgb($first-color);
+    }
+    &:hover,
+    &.active {
+      border-color: rgb($white-color);
+    }
+  }
+}

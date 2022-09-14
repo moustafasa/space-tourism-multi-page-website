@@ -1,0 +1,11 @@
+@use "./layout/globals";
+@use "./layout/header" with (
+  $page: "index"
+);
+@use "./components/buttons";
+@use "./components/headings";
+@use "./components/fonts";
+@use "./pages/index";
+@use "./pages/destination";
+@use "./pages/crew";
+@use "./pages/technology";

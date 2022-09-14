@@ -1,0 +1,130 @@
+@use "../helper/globalMixins" as *;
+@use "../variables/colors" as *;
+@use "../components/fonts" as *;
+body[page="technology"] {
+  overflow-x: hidden;
+  padding-bottom: 81px;
+  @include medias("small") {
+    padding-bottom: 92px;
+  }
+  @include medias("more small") {
+    padding-bottom: 101px;
+  }
+  .technology {
+    text-align: center;
+    @include medias("more small") {
+      text-align: left;
+    }
+    padding-top: 24px;
+    @include medias("small") {
+      padding-top: 40px;
+    }
+    @include medias("more small") {
+      padding-top: 76px;
+    }
+    .section-head {
+      &.large {
+        display: none;
+      }
+      @include medias("small") {
+        text-align: left;
+        padding-left: 38.5px;
+      }
+      @include medias("more small") {
+        &.large {
+          display: block;
+        }
+        &.mobile {
+          display: none;
+        }
+      }
+    }
+    .right {
+      width: 100vw;
+      margin-bottom: 34px;
+      margin-top: 32px;
+      @include medias("small") {
+        margin-top: 60px;
+        margin-bottom: 56px;
+      }
+      @include medias("more small") {
+        position: absolute;
+        width: 515px;
+        right: 0;
+        top: 272px;
+        margin-bottom: 0;
+      }
+      @include medias("medium") {
+        width: 320px;
+        top: 338px;
+      }
+      img {
+        width: 100%;
+        display: block;
+      }
+      .large {
+        @include medias("less small") {
+          display: none;
+        }
+      }
+      .mobile {
+        @include medias("more small") {
+          display: none;
+        }
+      }
+    }
+    .container {
+      .content {
+        .left {
+          @include medias("more small") {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 137px;
+            column-gap: 80px;
+          }
+          @include medias("medium") {
+            column-gap: 50px;
+          }
+
+          .tech {
+            margin-top: 26px;
+            @include medias("small") {
+              margin-top: 44px;
+            }
+            span,
+            .name {
+              text-transform: uppercase;
+            }
+            span,
+            .description {
+              color: rgb($second-color);
+            }
+            .name {
+              margin: 9px 0 16px;
+              @include medias("more small") {
+                margin: 17px 0 11px;
+              }
+              @include medias("small") {
+                margin-top: 16px;
+              }
+            }
+            .description {
+              @include medias("more small") {
+                max-width: 444px;
+              }
+              @include medias("small") {
+                max-width: 458px;
+                margin-inline: auto;
+              }
+              @include medias("mobile") {
+                max-width: 327px;
+                margin-inline: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
