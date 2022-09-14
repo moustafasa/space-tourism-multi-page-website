@@ -91,7 +91,7 @@ nav {
   color: rgb($first-color);
   text-transform: uppercase;
   position: relative;
-  z-index: 1;
+  // z-index: 1;
   transition: 0.5s;
   cursor: pointer;
   @include circle(274px);

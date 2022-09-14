@@ -66,6 +66,7 @@ header {
   }
   .bars {
     z-index: 10000;
+    cursor: pointer;
     @include global.medias("more mobile") {
       display: none;
     }
@@ -77,7 +78,9 @@ header {
     }
     &.active {
       + nav {
-        display: flex;
+        z-index: 3000;
+        right: 0;
+        opacity: 1;
       }
       .burger {
         display: none;
@@ -89,9 +92,22 @@ header {
   }
   nav {
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     padding: 0 165px 0 123px;
+    transition: 0.5s;
+    @include global.medias("less large") {
+      padding: 0 48px;
+    }
+    @include global.medias("mobile") {
+      position: fixed;
+      width: 70%;
+      padding: 118px 32px 0;
+      height: 100vh;
+      right: -1000px;
+      z-index: -1;
+      opacity: 0;
+    }
     &::after {
       content: "";
       background-color: rgb($white-color);
@@ -107,16 +123,6 @@ header {
       @include global.medias("more small") {
         display: block;
       }
-    }
-    @include global.medias("less large") {
-      padding: 0 48px;
-    }
-    @include global.medias("mobile") {
-      display: none;
-      position: fixed;
-      width: 70%;
-      padding: 118px 32px 0;
-      height: 100vh;
     }
   }
 }

@@ -240,6 +240,7 @@ header .container h1 {
 }
 header .bars {
   z-index: 10000;
+  cursor: pointer;
 }
 @media (min-width: 768px) {
   header .bars {
@@ -253,7 +254,9 @@ header .bars .close {
   display: none;
 }
 header .bars.active + nav {
-  display: flex;
+  z-index: 3000;
+  right: 0;
+  opacity: 1;
 }
 header .bars.active .burger {
   display: none;
@@ -263,9 +266,26 @@ header .bars.active .close {
 }
 header nav {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
   padding: 0 165px 0 123px;
+  transition: 0.5s;
+}
+@media (max-width: 1199px) {
+  header nav {
+    padding: 0 48px;
+  }
+}
+@media (max-width: 767px) {
+  header nav {
+    position: fixed;
+    width: 70%;
+    padding: 118px 32px 0;
+    height: 100vh;
+    right: -1000px;
+    z-index: -1;
+    opacity: 0;
+  }
 }
 header nav::after {
   content: "";
@@ -284,20 +304,6 @@ header nav::after {
 @media (min-width: 992px) {
   header nav::after {
     display: block;
-  }
-}
-@media (max-width: 1199px) {
-  header nav {
-    padding: 0 48px;
-  }
-}
-@media (max-width: 767px) {
-  header nav {
-    display: none;
-    position: fixed;
-    width: 70%;
-    padding: 118px 32px 0;
-    height: 100vh;
   }
 }
 
@@ -576,7 +582,6 @@ nav a:not(:last-of-type) {
   color: rgb(11, 13, 23);
   text-transform: uppercase;
   position: relative;
-  z-index: 1;
   transition: 0.5s;
   cursor: pointer;
   width: 274px;
