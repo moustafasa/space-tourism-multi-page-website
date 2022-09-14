@@ -4,7 +4,7 @@
 @use "../variables/fonts" as *;
 @use "../variables/dimensions" as *;
 
-body[page="home"] {
+body[data-page="home"] {
   padding-bottom: 48px;
   @include medias("more small") {
     padding-bottom: 131px;

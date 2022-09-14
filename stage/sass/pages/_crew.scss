@@ -1,6 +1,6 @@
 @use "../variables/colors" as *;
 @use "../helper/globalMixins" as *;
-body[page="crew"] {
+body[data-page="crew"] {
   overflow: hidden;
   padding-bottom: 104px;
   @include medias("more small") {

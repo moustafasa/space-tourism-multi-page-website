@@ -1,7 +1,7 @@
 @use "../helper/globalMixins" as *;
 @use "../variables/colors" as *;
 @use "../components/fonts" as *;
-body[page="destination"] {
+body[data-page="destination"] {
   padding-bottom: 58px;
   @include medias("small") {
     padding-bottom: 62px;

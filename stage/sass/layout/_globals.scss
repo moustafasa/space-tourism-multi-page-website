@@ -89,7 +89,7 @@ h5 {
 
 $list: ("home", "destination", "crew", "technology");
 @each $var in $list {
-  body[page="#{$var}"] {
+  body[data-page="#{$var}"] {
     @include setBackground($var);
     section:not(#{"." + $var}) {
       display: none;
