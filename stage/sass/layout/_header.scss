@@ -11,7 +11,16 @@ header {
     align-items: center;
     padding: 0 24px;
     height: $nav-height;
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    @include global.medias("more small") {
+      top: $nav-top-large;
+    }
+    @include global.medias("mobile") {
+      top: $nav-top-mobile;
+    }
   }
   .logo {
     height: 48px;

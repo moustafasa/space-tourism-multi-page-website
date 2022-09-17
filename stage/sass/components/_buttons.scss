@@ -125,13 +125,14 @@ nav {
 .slider-1 {
   @include centerbyflex("horizontal");
   li {
+    background-color: rgb($white-color);
+    opacity: 17.44%;
+    transition: 0.5s;
+    cursor: pointer;
     @include circle(15px);
     @include medias("less small") {
       @include one-value-more-properties(10px, width, height);
     }
-    background-color: rgb($white-color);
-    opacity: 17.44%;
-    transition: 0.5s;
     &:not(:last-of-type) {
       margin-right: 24px;
       @include medias("less small") {

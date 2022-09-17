@@ -18,14 +18,16 @@ html {
 }
 body {
   min-height: 100vh;
-  padding-top: $body-padding-top-large;
-  @include medias("mobile") {
-    padding-top: $body-padding-top-mobile;
-  }
-  @include medias("small") {
-    padding-top: $body-padding-top-small;
-  }
+  background-size: cover;
+  background-repeat: no-repeat;
   color: rgb($white-color);
+  padding-top: $nav-height;
+  @include medias("mobile") {
+    padding-top: $nav-height + $nav-top-mobile;
+  }
+  @include medias("more small") {
+    padding-top: $nav-height + $nav-top-large;
+  }
 }
 a {
   text-decoration: none;

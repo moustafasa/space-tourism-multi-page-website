@@ -13,17 +13,19 @@ html {
 
 body {
   min-height: 100vh;
-  padding-top: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: rgb(255, 255, 255);
+  padding-top: 96px;
 }
 @media (max-width: 767px) {
   body {
-    padding-top: 33px;
+    padding-top: 129px;
   }
 }
-@media (max-width: 991px) and (min-width: 768px) {
+@media (min-width: 992px) {
   body {
-    padding-top: 0px;
+    padding-top: 136px;
   }
 }
 
@@ -189,7 +191,20 @@ header {
   align-items: center;
   padding: 0 24px;
   height: 96px;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  header {
+    top: 40px;
+  }
+}
+@media (max-width: 767px) {
+  header {
+    top: 33px;
+  }
 }
 header .logo {
   height: 48px;
@@ -622,12 +637,13 @@ nav a:not(:last-of-type) {
   justify-content: center;
 }
 .slider-1 li {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
   background-color: rgb(255, 255, 255);
   opacity: 17.44%;
   transition: 0.5s;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
 }
 @media (max-width: 991px) {
   .slider-1 li {
@@ -924,138 +940,195 @@ body[data-page=destination] section.destination .container .right .content .meas
 }
 
 body[data-page=crew] {
-  overflow: hidden;
-  padding-bottom: 104px;
+  position: relative;
+  overflow-x: hidden;
 }
-@media (min-width: 992px) {
+@media (max-width: 767px) {
   body[data-page=crew] {
-    padding-bottom: 94px;
+    padding-bottom: 104px;
   }
 }
 body[data-page=crew] .crew .container {
   text-align: center;
   padding-top: 24px;
 }
+@media (max-width: 991px) and (min-width: 768px) {
+  body[data-page=crew] .crew .container {
+    padding-top: 40px;
+  }
+}
 @media (min-width: 992px) {
   body[data-page=crew] .crew .container {
     text-align: left;
-  }
-}
-@media (max-width: 991px) and (min-width: 768px) {
-  body[data-page=crew] .crew .container .section-head {
-    text-align: left;
-  }
-}
-body[data-page=crew] .crew .container .right {
-  height: 223px;
-  margin: 32px auto;
-  border-bottom: 1px solid rgb(56, 59, 75);
-}
-@media (max-width: 767px) {
-  body[data-page=crew] .crew .container .right {
-    max-width: 327px;
-  }
-}
-@media (min-width: 768px) {
-  body[data-page=crew] .crew .container .right {
-    position: absolute;
-    border: none;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 76px;
   }
 }
 @media (min-width: 992px) {
-  body[data-page=crew] .crew .container .right {
-    right: 130px;
-    bottom: -10px;
+  body[data-page=crew] .crew .container .content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  body[data-page=crew] .crew .container .content {
+    margin-top: 60px;
+  }
+}
+body[data-page=crew] .crew .container .content .img {
+  overflow: hidden;
+  position: relative;
+}
+@media (max-width: 767px) {
+  body[data-page=crew] .crew .container .content .img {
+    width: 100%;
+    max-width: 327px;
+    height: 223px;
+    margin: 32px auto;
+    border-bottom: 1px solid rgb(56, 59, 75);
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  body[data-page=crew] .crew .container .content .img {
+    width: 456.37px;
+    height: 572px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -84px;
+  }
+}
+@media (min-width: 992px) {
+  body[data-page=crew] .crew .container .content .img {
     width: 568.07px;
     height: 712px;
   }
 }
-@media (max-width: 1199px) and (min-width: 992px) {
-  body[data-page=crew] .crew .container .right {
-    right: 0;
+body[data-page=crew] .crew .container .content .img img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -100vw;
+  bottom: -40px;
+  object-fit: contain;
+  opacity: 0;
+  transition: 0.5s;
+}
+body[data-page=crew] .crew .container .content .img img.showed {
+  left: 0;
+  opacity: 1;
+}
+body[data-page=crew] .crew .container .content .img img.slided {
+  left: 100vw;
+  opacity: 0;
+}
+@media (min-width: 992px) {
+  body[data-page=crew] .crew .container .content .img img {
+    bottom: -10px;
   }
 }
-@media (max-width: 991px) and (min-width: 768px) {
-  body[data-page=crew] .crew .container .right {
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 456.37px;
-    height: 465px;
-  }
-}
-body[data-page=crew] .crew .container .right img {
-  height: inherit;
-  object-fit: cover;
-}
-body[data-page=crew] .crew .container .left {
+body[data-page=crew] .crew .container .content .info {
   position: relative;
-  padding-top: 40px;
+}
+@media (max-width: 767px) {
+  body[data-page=crew] .crew .container .content .info {
+    padding-top: 42px;
+  }
+}
+@media (min-width: 992px) {
+  body[data-page=crew] .crew .container .content .info {
+    margin-top: 154px;
+  }
+}
+body[data-page=crew] .crew .container .content .info .info-cont {
+  position: relative;
+  width: 100%;
+  min-height: 170px;
+  margin-inline: auto;
+}
+@media (min-width: 992px) {
+  body[data-page=crew] .crew .container .content .info .info-cont {
+    margin-bottom: 120px;
+    width: 488.5px;
+    height: 271px;
+    margin-inline: 0;
+  }
+}
+@media (max-width: 1199px) and (min-width: 992px) {
+  body[data-page=crew] .crew .container .content .info .info-cont {
+    width: 400px;
+    height: 314px;
+  }
 }
 @media (max-width: 991px) and (min-width: 768px) {
-  body[data-page=crew] .crew .container .left {
-    padding-top: 60px;
-    padding-bottom: 50px;
+  body[data-page=crew] .crew .container .content .info .info-cont {
+    margin-bottom: 40px;
+    width: 458px;
+    height: 182px;
   }
 }
-@media (min-width: 992px) {
-  body[data-page=crew] .crew .container .left {
-    padding-top: 154px;
-  }
+body[data-page=crew] .crew .container .content .info .info-cont .box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -100vw;
+  top: 0;
+  opacity: 0;
+  transition: 0.5s;
 }
-body[data-page=crew] .crew .container .left .content .role {
+body[data-page=crew] .crew .container .content .info .info-cont .box.showed {
+  left: 0;
+  opacity: 1;
+}
+body[data-page=crew] .crew .container .content .info .info-cont .box.slided {
+  left: 100vw;
+  opacity: 0;
+}
+body[data-page=crew] .crew .container .content .info .info-cont .box .role {
+  opacity: 50.42%;
+}
+body[data-page=crew] .crew .container .content .info .info-cont .box .role,
+body[data-page=crew] .crew .container .content .info .info-cont .box .name {
   text-transform: uppercase;
-  opacity: 49.51%;
 }
-body[data-page=crew] .crew .container .left .content .name {
+body[data-page=crew] .crew .container .content .info .info-cont .box .name {
   margin: 8px 0 16px;
-  text-transform: uppercase;
 }
 @media (min-width: 992px) {
-  body[data-page=crew] .crew .container .left .content .name {
+  body[data-page=crew] .crew .container .content .info .info-cont .box .name {
     margin: 15px 0 27px;
   }
 }
-body[data-page=crew] .crew .container .left .content .bio {
-  margin: auto;
+body[data-page=crew] .crew .container .content .info .info-cont .box .bio {
   color: rgb(208, 214, 249);
 }
-@media (max-width: 991px) and (min-width: 768px) {
-  body[data-page=crew] .crew .container .left .content .bio {
-    max-width: 458px;
-  }
-}
 @media (min-width: 992px) {
-  body[data-page=crew] .crew .container .left .content .bio {
+  body[data-page=crew] .crew .container .content .info .info-cont .box .bio {
     max-width: 444px;
-    margin: 0;
   }
 }
-body[data-page=crew] .crew .container .left .slider-1 {
-  cursor: pointer;
-  width: fit-content;
-}
-@media (min-width: 992px) {
-  body[data-page=crew] .crew .container .left .slider-1 {
-    margin-top: 120px;
-  }
-}
-@media (max-width: 991px) {
-  body[data-page=crew] .crew .container .left .slider-1 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+@media (max-width: 991px) and (min-width: 768px) {
+  body[data-page=crew] .crew .container .content .info .info-cont .box .bio {
+    max-width: 485px;
+    margin: 0 auto;
   }
 }
 @media (max-width: 767px) {
-  body[data-page=crew] .crew .container .left .slider-1 {
+  body[data-page=crew] .crew .container .content .info .slider-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top: 0;
   }
 }
-@media (max-width: 991px) and (min-width: 768px) {
-  body[data-page=crew] .crew .container .left .slider-1 {
-    bottom: 0;
+@media (min-width: 992px) {
+  body[data-page=crew] .crew .container .content .info .slider-1 {
+    justify-content: flex-start;
+    margin-bottom: 94px;
   }
 }
 

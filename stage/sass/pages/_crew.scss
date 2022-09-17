@@ -1,103 +1,158 @@
 @use "../variables/colors" as *;
 @use "../helper/globalMixins" as *;
+@use "../variables/dimensions" as *;
 body[data-page="crew"] {
-  overflow: hidden;
-  padding-bottom: 104px;
-  @include medias("more small") {
-    padding-bottom: 94px;
+  position: relative;
+  overflow-x: hidden;
+  @include medias("mobile") {
+    padding-bottom: 104px;
   }
   .crew {
     .container {
       text-align: center;
       padding-top: 24px;
+      @include medias("small") {
+        padding-top: 40px;
+      }
       @include medias("more small") {
         text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 76px;
       }
-      .section-head {
-        @include medias("small") {
-          text-align: left;
-        }
-      }
-      .right {
-        height: 223px;
-        margin: 32px auto;
-        border-bottom: 1px solid rgb($border-color);
-        @include medias("mobile") {
-          max-width: 327px;
-        }
-        @include medias("more mobile") {
-          position: absolute;
-          border: none;
-          margin: 0;
-        }
+
+      .content {
         @include medias("more small") {
-          right: 130px;
-          bottom: -10px;
-          width: 568.07px;
-          height: 712px;
-        }
-        @include medias("medium") {
-          right: 0;
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          align-items: flex-end;
         }
         @include medias("small") {
-          bottom: -40px;
-          @include centerbyposition("horizontal", null);
-          width: 456.37px;
-          height: 465px;
+          margin-top: 60px;
         }
-        img {
-          height: inherit;
-          object-fit: cover;
-        }
-      }
-      .left {
-        position: relative;
-        padding-top: 40px;
-        @include medias("small") {
-          padding-top: 60px;
-          padding-bottom: 50px;
-        }
-        @include medias("more small") {
-          padding-top: 154px;
-        }
-        .content {
-          .role {
-            text-transform: uppercase;
-            opacity: 49.51%;
-          }
-          .name {
-            margin: 8px 0 16px;
-            text-transform: uppercase;
-            @include medias("more small") {
-              margin: 15px 0 27px;
-            }
-          }
-          .bio {
-            margin: auto;
-            color: rgb($second-color);
-            @include medias("small") {
-              max-width: 458px;
-            }
-            @include medias("more small") {
-              max-width: 444px;
-              margin: 0;
-            }
-          }
-        }
-        .slider-1 {
-          cursor: pointer;
-          width: fit-content;
-          @include medias("more small") {
-            margin-top: 120px;
-          }
-          @include medias("less small") {
-            @include centerbyposition("horizontal", absolute);
-          }
+        .img {
+          overflow: hidden;
+          position: relative;
           @include medias("mobile") {
-            top: 0;
+            width: 100%;
+            max-width: 327px;
+            height: 223px;
+            margin: 32px auto;
+            border-bottom: 1px solid rgb($border-color);
           }
           @include medias("small") {
-            bottom: 0;
+            width: 456.37px;
+            height: 572px;
+            @include centerbyposition("horizontal", absolute);
+            bottom: -84px;
+          }
+          @include medias("more small") {
+            width: 568.07px;
+            height: 712px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: -100vw;
+            bottom: -40px;
+            object-fit: contain;
+            opacity: 0;
+            transition: 0.5s;
+            &.showed {
+              left: 0;
+              opacity: 1;
+            }
+            &.slided {
+              left: 100vw;
+              opacity: 0;
+            }
+            @include medias("more small") {
+              bottom: -10px;
+            }
+          }
+        }
+        .info {
+          position: relative;
+          @include medias("mobile") {
+            padding-top: 42px;
+          }
+          @include medias("more small") {
+            margin-top: 154px;
+          }
+          .info-cont {
+            position: relative;
+            width: 100%;
+            min-height: 170px;
+            margin-inline: auto;
+            @include medias("more small") {
+              margin-bottom: 120px;
+              width: 488.5px;
+              height: 271px;
+              margin-inline: 0;
+            }
+            @include medias("medium") {
+              width: 400px;
+              height: 314px;
+            }
+            @include medias("small") {
+              margin-bottom: 40px;
+              width: 458px;
+              height: 182px;
+            }
+            .box {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              left: -100vw;
+              top: 0;
+              opacity: 0;
+              transition: 0.5s;
+              &.showed {
+                left: 0;
+                opacity: 1;
+              }
+              &.slided {
+                left: 100vw;
+                opacity: 0;
+              }
+              .role {
+                opacity: 50.42%;
+              }
+              .role,
+              .name {
+                text-transform: uppercase;
+              }
+              .name {
+                margin: 8px 0 16px;
+                @include medias("more small") {
+                  margin: 15px 0 27px;
+                }
+              }
+              .bio {
+                color: rgb($second-color);
+                @include medias("more small") {
+                  max-width: 444px;
+                }
+                @include medias("small") {
+                  max-width: 485px;
+                  margin: 0 auto;
+                }
+              }
+            }
+          }
+          .slider-1 {
+            @include medias("mobile") {
+              @include centerbyposition("horizontal", absolute);
+              top: 0;
+            }
+            @include medias("more small") {
+              justify-content: flex-start;
+              margin-bottom: 94px;
+            }
           }
         }
       }
