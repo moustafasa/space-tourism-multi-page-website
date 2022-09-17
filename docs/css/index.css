@@ -1045,6 +1045,7 @@ body[data-page=crew] .crew .container .content .info {
   }
 }
 body[data-page=crew] .crew .container .content .info .info-cont {
+  overflow-x: clip;
   position: relative;
   width: 100%;
   min-height: 170px;

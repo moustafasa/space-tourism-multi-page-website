@@ -84,6 +84,7 @@ body[data-page="crew"] {
             margin-top: 154px;
           }
           .info-cont {
+            overflow-x: clip;
             position: relative;
             width: 100%;
             min-height: 170px;

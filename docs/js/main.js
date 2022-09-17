@@ -119,6 +119,8 @@ function showData(slide) {
       box.classList.add("showed");
     } else if (box.id < slide.id) {
       box.classList.add("slided");
+    } else if (box.id > slide.id) {
+      box.classList.remove("slided");
     }
   });
 }
