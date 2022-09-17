@@ -6,6 +6,21 @@
   the design need to restyled
   there is overflow on slide on mobile media
 */
+%slide {
+  translate: -100vw;
+  transition: 0.5s;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  &.showed {
+    position: static;
+    translate: 0;
+  }
+  &.slided {
+    translate: 100vw;
+  }
+}
 body[data-page="crew"] {
   position: relative;
   overflow-x: hidden;
@@ -28,6 +43,11 @@ body[data-page="crew"] {
       }
 
       .content {
+        @include medias("small") {
+          display: flex;
+          flex-direction: column-reverse;
+          justify-content: space-between;
+        }
         @include medias("more small") {
           display: flex;
           flex-direction: row-reverse;
@@ -38,44 +58,40 @@ body[data-page="crew"] {
           margin-top: 60px;
         }
         .img {
-          overflow: hidden;
           position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
           @include medias("mobile") {
-            width: 100%;
-            max-width: 327px;
-            height: 223px;
-            margin: 32px auto;
+            justify-content: center;
+            margin: 32px auto 33px;
             border-bottom: 1px solid rgb($border-color);
+            padding-inline: 74.62px;
+            max-width: 327px;
+            min-height: 200px;
           }
           @include medias("small") {
             width: 456.37px;
-            height: 572px;
-            @include centerbyposition("horizontal", absolute);
-            bottom: -84px;
+            margin-inline: auto;
+            min-height: 572px;
           }
           @include medias("more small") {
             width: 568.07px;
             height: 712px;
           }
-
           img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: -100vw;
-            bottom: -40px;
+            display: block;
+            width: fit-content;
+            @include medias("small") {
+              transform: translateY(40px);
+              margin-inline: auto;
+            }
+            @include medias("mobile") {
+              transform: translateY(10px);
+            }
             object-fit: contain;
-            transition: 0.5s;
-            &.showed {
-              left: 0;
-              opacity: 1;
-            }
-            &.slided {
-              left: 100vw;
-            }
-            @include medias("more small") {
-              bottom: -10px;
-            }
+            min-width: 88px;
+            @extend %slide;
           }
         }
         .info {
@@ -89,39 +105,21 @@ body[data-page="crew"] {
           .info-cont {
             position: relative;
             width: 100%;
-            min-height: 170px;
+            min-height: 237px;
             margin-inline: auto;
+            overflow: hidden;
+
             @include medias("more small") {
               margin-bottom: 120px;
-              width: 488.5px;
-              height: 271px;
               margin-inline: 0;
-            }
-            @include medias("medium") {
-              width: 400px;
-              height: 314px;
+              min-height: 271px;
             }
             @include medias("small") {
               margin-bottom: 40px;
-              width: 458px;
-              height: 182px;
+              min-height: 232px;
             }
             .box {
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              left: -100vw;
-              top: 0;
-              opacity: 0;
-              transition: 0.5s;
-              &.showed {
-                left: 0;
-                opacity: 1;
-              }
-              &.slided {
-                left: 100vw;
-                opacity: 0;
-              }
+              @extend %slide;
               .role {
                 opacity: 50.42%;
               }
