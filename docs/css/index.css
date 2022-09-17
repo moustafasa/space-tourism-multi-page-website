@@ -939,6 +939,10 @@ body[data-page=destination] section.destination .container .right .content .meas
   color: rgb(255, 255, 255);
 }
 
+/*
+  the design need to restyled
+  there is overflow on slide on mobile media
+*/
 body[data-page=crew] {
   position: relative;
   overflow-x: hidden;
@@ -1015,7 +1019,6 @@ body[data-page=crew] .crew .container .content .img img {
   left: -100vw;
   bottom: -40px;
   object-fit: contain;
-  opacity: 0;
   transition: 0.5s;
 }
 body[data-page=crew] .crew .container .content .img img.showed {
@@ -1024,7 +1027,6 @@ body[data-page=crew] .crew .container .content .img img.showed {
 }
 body[data-page=crew] .crew .container .content .img img.slided {
   left: 100vw;
-  opacity: 0;
 }
 @media (min-width: 992px) {
   body[data-page=crew] .crew .container .content .img img {
@@ -1045,7 +1047,6 @@ body[data-page=crew] .crew .container .content .info {
   }
 }
 body[data-page=crew] .crew .container .content .info .info-cont {
-  overflow-x: clip;
   position: relative;
   width: 100%;
   min-height: 170px;
@@ -1133,6 +1134,35 @@ body[data-page=crew] .crew .container .content .info .info-cont .box .bio {
   }
 }
 
+body[data-page=technology] .technology .container .content .left .tech .box, body[data-page=technology] .technology .right .box {
+  transition: translate 0.5s;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+@media (min-width: 992px) {
+  body[data-page=technology] .technology .container .content .left .tech .box, body[data-page=technology] .technology .right .box {
+    translate: 0 100vw;
+  }
+}
+@media (max-width: 991px) {
+  body[data-page=technology] .technology .container .content .left .tech .box, body[data-page=technology] .technology .right .box {
+    translate: 100vw 0;
+  }
+}
+body[data-page=technology] .technology .container .content .left .tech .showed.box, body[data-page=technology] .technology .right .showed.box {
+  position: static;
+  translate: 0;
+}
+body[data-page=technology] .technology .container .content .left .tech .slided.box, body[data-page=technology] .technology .right .slided.box {
+  translate: 0 -100vw;
+}
+@media (max-width: 991px) {
+  body[data-page=technology] .technology .container .content .left .tech .slided.box, body[data-page=technology] .technology .right .slided.box {
+    translate: -100vw 0;
+  }
+}
+
 body[data-page=technology] {
   overflow-x: hidden;
   padding-bottom: 81px;
@@ -1187,17 +1217,26 @@ body[data-page=technology] .technology .right {
   width: 100vw;
   margin-bottom: 34px;
   margin-top: 32px;
+  overflow: hidden;
+  position: relative;
+}
+@media (max-width: 767px) {
+  body[data-page=technology] .technology .right {
+    min-height: 170px;
+  }
 }
 @media (max-width: 991px) and (min-width: 768px) {
   body[data-page=technology] .technology .right {
     margin-top: 60px;
     margin-bottom: 56px;
+    max-height: 310px;
   }
 }
 @media (min-width: 992px) {
   body[data-page=technology] .technology .right {
     position: absolute;
     width: 515px;
+    max-height: 527px;
     right: 0;
     top: 272px;
     margin-bottom: 0;
@@ -1209,17 +1248,17 @@ body[data-page=technology] .technology .right {
     top: 338px;
   }
 }
-body[data-page=technology] .technology .right img {
+body[data-page=technology] .technology .right .box img {
   width: 100%;
   display: block;
 }
 @media (max-width: 991px) {
-  body[data-page=technology] .technology .right .large {
+  body[data-page=technology] .technology .right .box .large {
     display: none;
   }
 }
 @media (min-width: 992px) {
-  body[data-page=technology] .technology .right .mobile {
+  body[data-page=technology] .technology .right .box .mobile {
     display: none;
   }
 }
@@ -1238,47 +1277,60 @@ body[data-page=technology] .technology .right img {
   }
 }
 body[data-page=technology] .technology .container .content .left .tech {
+  position: relative;
   margin-top: 26px;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  body[data-page=technology] .technology .container .content .left .tech {
+    min-height: 220px;
+  }
+}
+@media (min-width: 992px) {
+  body[data-page=technology] .technology .container .content .left .tech {
+    height: 303px;
+  }
 }
 @media (max-width: 991px) and (min-width: 768px) {
   body[data-page=technology] .technology .container .content .left .tech {
     margin-top: 44px;
+    height: 237px;
   }
 }
-body[data-page=technology] .technology .container .content .left .tech span,
-body[data-page=technology] .technology .container .content .left .tech .name {
+body[data-page=technology] .technology .container .content .left .tech .box span,
+body[data-page=technology] .technology .container .content .left .tech .box .name {
   text-transform: uppercase;
 }
-body[data-page=technology] .technology .container .content .left .tech span,
-body[data-page=technology] .technology .container .content .left .tech .description {
+body[data-page=technology] .technology .container .content .left .tech .box span,
+body[data-page=technology] .technology .container .content .left .tech .box .description {
   color: rgb(208, 214, 249);
 }
-body[data-page=technology] .technology .container .content .left .tech .name {
+body[data-page=technology] .technology .container .content .left .tech .box .name {
   margin: 9px 0 16px;
 }
 @media (min-width: 992px) {
-  body[data-page=technology] .technology .container .content .left .tech .name {
+  body[data-page=technology] .technology .container .content .left .tech .box .name {
     margin: 17px 0 11px;
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
-  body[data-page=technology] .technology .container .content .left .tech .name {
+  body[data-page=technology] .technology .container .content .left .tech .box .name {
     margin-top: 16px;
   }
 }
 @media (min-width: 992px) {
-  body[data-page=technology] .technology .container .content .left .tech .description {
+  body[data-page=technology] .technology .container .content .left .tech .box .description {
     max-width: 444px;
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
-  body[data-page=technology] .technology .container .content .left .tech .description {
+  body[data-page=technology] .technology .container .content .left .tech .box .description {
     max-width: 458px;
     margin-inline: auto;
   }
 }
 @media (max-width: 767px) {
-  body[data-page=technology] .technology .container .content .left .tech .description {
+  body[data-page=technology] .technology .container .content .left .tech .box .description {
     max-width: 327px;
     margin-inline: auto;
   }

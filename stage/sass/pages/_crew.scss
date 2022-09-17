@@ -1,6 +1,11 @@
 @use "../variables/colors" as *;
 @use "../helper/globalMixins" as *;
 @use "../variables/dimensions" as *;
+
+/*
+  the design need to restyled
+  there is overflow on slide on mobile media
+*/
 body[data-page="crew"] {
   position: relative;
   overflow-x: hidden;
@@ -60,7 +65,6 @@ body[data-page="crew"] {
             left: -100vw;
             bottom: -40px;
             object-fit: contain;
-            opacity: 0;
             transition: 0.5s;
             &.showed {
               left: 0;
@@ -68,7 +72,6 @@ body[data-page="crew"] {
             }
             &.slided {
               left: 100vw;
-              opacity: 0;
             }
             @include medias("more small") {
               bottom: -10px;
@@ -84,7 +87,6 @@ body[data-page="crew"] {
             margin-top: 154px;
           }
           .info-cont {
-            overflow-x: clip;
             position: relative;
             width: 100%;
             min-height: 170px;

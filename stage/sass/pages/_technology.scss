@@ -1,6 +1,30 @@
 @use "../helper/globalMixins" as *;
 @use "../variables/colors" as *;
 @use "../components/fonts" as *;
+
+%slide {
+  transition: translate 0.5s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  @include medias("more small") {
+    translate: 0 100vw;
+  }
+  @include medias("less small") {
+    translate: 100vw 0;
+  }
+  &.showed {
+    position: static;
+    translate: 0;
+  }
+  &.slided {
+    translate: 0 -100vw;
+    @include medias("less small") {
+      translate: -100vw 0;
+    }
+  }
+}
+
 body[data-page="technology"] {
   overflow-x: hidden;
   padding-bottom: 81px;
@@ -43,13 +67,20 @@ body[data-page="technology"] {
       width: 100vw;
       margin-bottom: 34px;
       margin-top: 32px;
+      overflow: hidden;
+      position: relative;
+      @include medias("mobile") {
+        min-height: 170px;
+      }
       @include medias("small") {
         margin-top: 60px;
         margin-bottom: 56px;
+        max-height: 310px;
       }
       @include medias("more small") {
         position: absolute;
         width: 515px;
+        max-height: 527px;
         right: 0;
         top: 272px;
         margin-bottom: 0;
@@ -58,18 +89,21 @@ body[data-page="technology"] {
         width: 320px;
         top: 338px;
       }
-      img {
-        width: 100%;
-        display: block;
-      }
-      .large {
-        @include medias("less small") {
-          display: none;
+      .box {
+        @extend %slide;
+        img {
+          width: 100%;
+          display: block;
         }
-      }
-      .mobile {
-        @include medias("more small") {
-          display: none;
+        .large {
+          @include medias("less small") {
+            display: none;
+          }
+        }
+        .mobile {
+          @include medias("more small") {
+            display: none;
+          }
         }
       }
     }
@@ -88,38 +122,51 @@ body[data-page="technology"] {
           }
 
           .tech {
+            position: relative;
             margin-top: 26px;
+            @include medias("mobile") {
+              min-height: 220px;
+            }
+            @include medias("more small") {
+              height: 303px;
+            }
+
             @include medias("small") {
               margin-top: 44px;
+              height: 237px;
             }
-            span,
-            .name {
-              text-transform: uppercase;
-            }
-            span,
-            .description {
-              color: rgb($second-color);
-            }
-            .name {
-              margin: 9px 0 16px;
-              @include medias("more small") {
-                margin: 17px 0 11px;
+            overflow: hidden;
+            .box {
+              @extend %slide;
+              span,
+              .name {
+                text-transform: uppercase;
               }
-              @include medias("small") {
-                margin-top: 16px;
+              span,
+              .description {
+                color: rgb($second-color);
               }
-            }
-            .description {
-              @include medias("more small") {
-                max-width: 444px;
+              .name {
+                margin: 9px 0 16px;
+                @include medias("more small") {
+                  margin: 17px 0 11px;
+                }
+                @include medias("small") {
+                  margin-top: 16px;
+                }
               }
-              @include medias("small") {
-                max-width: 458px;
-                margin-inline: auto;
-              }
-              @include medias("mobile") {
-                max-width: 327px;
-                margin-inline: auto;
+              .description {
+                @include medias("more small") {
+                  max-width: 444px;
+                }
+                @include medias("small") {
+                  max-width: 458px;
+                  margin-inline: auto;
+                }
+                @include medias("mobile") {
+                  max-width: 327px;
+                  margin-inline: auto;
+                }
               }
             }
           }

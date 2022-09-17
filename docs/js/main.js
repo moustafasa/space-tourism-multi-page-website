@@ -65,51 +65,58 @@ tabs.forEach((tab) => {
   });
 });
 
-//fill page content on slider-1
+//fill page content on crew page
 let sliders = [...document.querySelectorAll(".crew .slider-1 li")];
 let crewApp = new add();
 let crew = crewApp.crew();
-let boxes;
 crew.then(() => {
-  boxes = [...document.querySelectorAll(".crew :is(.box,.img img)")];
+  let boxes = [...document.querySelectorAll(".crew :is(.box,.img img)")];
+  slideFunc(boxes, sliders, "crew");
+});
+
+// fill page content of technology page
+let techApp = new add();
+let tech = techApp.technology();
+let sliders2 = [...document.querySelectorAll(".technology .slider-2 li")];
+tech.then(() => {
+  let boxes = [...document.querySelectorAll(".technology .box")];
+  slideFunc(boxes, sliders2, "technology");
+});
+
+function slideFunc(boxes, sliders, page) {
   sliders.forEach((slide) => {
-    // show active slide
     if (slide.classList.contains("active")) {
-      // show active member data
       let data = document.querySelectorAll(
-        `.crew :is(img,.box)[data-name='${slide.dataset.name}']`
+        `.${page} [data-name="${slide.dataset.name}"]:not(li)`
       );
       data.forEach((ele) => ele.classList.add("showed"));
     }
-    // change data on click on slider
-    slide.addEventListener("click", (ev) => {
-      showData(ev.currentTarget);
+    slide.addEventListener("click", (e) => {
+      showData(e.currentTarget, boxes, sliders);
     });
   });
-
-  // change data with slide on touchphones
   let start;
-  document.body.addEventListener("touchstart", (e) => {
-    // get first touch event
+  let section = document.querySelector(`.${page}`);
+  section.addEventListener("touchstart", (e) => {
     start = e.changedTouches[0].screenX;
   });
-  document.body.addEventListener("touchend", (e) => {
+  section.addEventListener("touchend", (e) => {
     let active = sliders.indexOf(
       sliders.find((ele) => ele.classList.contains("active"))
     );
-    if (e.changedTouches[0].screenX > start) {
+    if (e.changedTouches[0].screenX < start) {
       if (active < sliders.length - 1) {
-        showData(sliders[active + 1]);
+        showData(sliders[active + 1], boxes, sliders);
       }
-    } else if (e.changedTouches[0].screenX < start) {
+    } else if (e.changedTouches[0].screenX > start) {
       if (active > 0) {
-        showData(sliders[active - 1]);
+        showData(sliders[active - 1], boxes, sliders);
       }
     }
   });
-});
+}
 
-function showData(slide) {
+function showData(slide, boxes, sliders) {
   sliders.forEach((ele) => ele.classList.remove("active"));
   slide.classList.add("active");
   boxes.forEach((box) => {
