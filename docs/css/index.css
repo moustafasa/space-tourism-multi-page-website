@@ -1063,29 +1063,31 @@ body[data-page=crew] .crew .container .content .info {
 body[data-page=crew] .crew .container .content .info .info-cont {
   position: relative;
   width: 100%;
-  height: 237px;
+  min-height: 237px;
   margin-inline: auto;
+  overflow: hidden;
 }
 @media (min-width: 992px) {
   body[data-page=crew] .crew .container .content .info .info-cont {
     margin-bottom: 120px;
     margin-inline: 0;
-    height: 271px;
+    min-height: 303px;
+    min-width: 444px;
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
   body[data-page=crew] .crew .container .content .info .info-cont {
     margin-bottom: 40px;
-    height: 232px;
+    min-height: 232px;
   }
 }
 body[data-page=crew] .crew .container .content .info .info-cont .box {
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
   transition: 0.5s;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   translate: -100vw;
 }
 body[data-page=crew] .crew .container .content .info .info-cont .box.showed {
@@ -1108,6 +1110,7 @@ body[data-page=crew] .crew .container .content .info .info-cont .box .name {
 @media (min-width: 992px) {
   body[data-page=crew] .crew .container .content .info .info-cont .box .name {
     margin: 15px 0 27px;
+    white-space: nowrap;
   }
 }
 body[data-page=crew] .crew .container .content .info .info-cont .box .bio {
