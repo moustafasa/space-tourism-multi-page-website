@@ -944,17 +944,19 @@ body[data-page=destination] section.destination .container .right .content .meas
   there is overflow on slide on mobile media
 */
 body[data-page=crew] .crew .container .content .info .info-cont .box, body[data-page=crew] .crew .container .content .img img {
-  translate: -100vw;
   transition: 0.5s;
+  translate: -100vw;
   position: absolute;
   right: 0;
   bottom: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
 }
 body[data-page=crew] .crew .container .content .info .info-cont .showed.box, body[data-page=crew] .crew .container .content .img img.showed {
   position: static;
   translate: 0;
+  opacity: 1;
 }
 body[data-page=crew] .crew .container .content .info .info-cont .slided.box, body[data-page=crew] .crew .container .content .img img.slided {
   translate: 100vw;
