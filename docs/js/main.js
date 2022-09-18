@@ -122,25 +122,21 @@ function slideFunc(boxes, sliders, page) {
     });
   });
   let start;
-  let startY;
   let section = document.querySelector(`.${page}`);
   section.addEventListener("touchstart", (e) => {
     start = e.changedTouches[0].screenX;
-    startY = e.changedTouches[0].screenY;
   });
   section.addEventListener("touchend", (e) => {
     let active = sliders.indexOf(
       sliders.find((ele) => ele.classList.contains("active"))
     );
-    if (startY === e.changedTouches[0].screenY) {
-      if (e.changedTouches[0].screenX < start) {
-        if (active < sliders.length - 1) {
-          showData(sliders[active + 1], boxes, sliders);
-        }
-      } else if (e.changedTouches[0].screenX > start) {
-        if (active > 0) {
-          showData(sliders[active - 1], boxes, sliders);
-        }
+    if (e.changedTouches[0].screenX < start) {
+      if (active < sliders.length - 1) {
+        showData(sliders[active + 1], boxes, sliders);
+      }
+    } else if (e.changedTouches[0].screenX > start) {
+      if (active > 0) {
+        showData(sliders[active - 1], boxes, sliders);
       }
     }
   });

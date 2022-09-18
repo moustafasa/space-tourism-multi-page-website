@@ -943,25 +943,6 @@ body[data-page=destination] section.destination .container .right .content .meas
   the design need to restyled
   there is overflow on slide on mobile media
 */
-body[data-page=crew] .crew .container .content .info .info-cont .box, body[data-page=crew] .crew .container .content .img img {
-  transition: 0.5s;
-  translate: -100vw;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-body[data-page=crew] .crew .container .content .info .info-cont .showed.box, body[data-page=crew] .crew .container .content .img img.showed {
-  position: static;
-  translate: 0;
-  opacity: 1;
-}
-body[data-page=crew] .crew .container .content .info .info-cont .slided.box, body[data-page=crew] .crew .container .content .img img.slided {
-  translate: 100vw;
-}
-
 body[data-page=crew] {
   position: relative;
   overflow-x: hidden;
@@ -1014,6 +995,7 @@ body[data-page=crew] .crew .container .content .img {
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  min-width: 88px;
 }
 @media (max-width: 767px) {
   body[data-page=crew] .crew .container .content .img {
@@ -1022,14 +1004,14 @@ body[data-page=crew] .crew .container .content .img {
     border-bottom: 1px solid rgb(56, 59, 75);
     padding-inline: 74.62px;
     max-width: 327px;
-    min-height: 200px;
+    height: 223px;
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
   body[data-page=crew] .crew .container .content .img {
     width: 456.37px;
     margin-inline: auto;
-    min-height: 572px;
+    height: 572px;
   }
 }
 @media (min-width: 992px) {
@@ -1039,10 +1021,20 @@ body[data-page=crew] .crew .container .content .img {
   }
 }
 body[data-page=crew] .crew .container .content .img img {
+  width: 100%;
+  max-height: 100%;
+  position: absolute;
+  left: -100vw;
+  bottom: 0;
+  transition: 0.5s;
   display: block;
-  width: fit-content;
   object-fit: contain;
-  min-width: 88px;
+}
+body[data-page=crew] .crew .container .content .img img.showed {
+  left: 0;
+}
+body[data-page=crew] .crew .container .content .img img.slided {
+  left: 100vw;
 }
 @media (max-width: 991px) and (min-width: 768px) {
   body[data-page=crew] .crew .container .content .img img {
@@ -1071,22 +1063,37 @@ body[data-page=crew] .crew .container .content .info {
 body[data-page=crew] .crew .container .content .info .info-cont {
   position: relative;
   width: 100%;
-  min-height: 237px;
+  height: 237px;
   margin-inline: auto;
-  overflow: hidden;
 }
 @media (min-width: 992px) {
   body[data-page=crew] .crew .container .content .info .info-cont {
     margin-bottom: 120px;
     margin-inline: 0;
-    min-height: 271px;
+    height: 271px;
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
   body[data-page=crew] .crew .container .content .info .info-cont {
     margin-bottom: 40px;
-    min-height: 232px;
+    height: 232px;
   }
+}
+body[data-page=crew] .crew .container .content .info .info-cont .box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  translate: -100vw;
+}
+body[data-page=crew] .crew .container .content .info .info-cont .box.showed {
+  position: static;
+  translate: 0;
+}
+body[data-page=crew] .crew .container .content .info .info-cont .box.slided {
+  translate: 100vw;
 }
 body[data-page=crew] .crew .container .content .info .info-cont .box .role {
   opacity: 50.42%;
