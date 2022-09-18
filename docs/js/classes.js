@@ -1,6 +1,6 @@
 class apiConnect {
-  constructor(choosed) {
-    this.choosed = choosed;
+  constructor() {
+    this.choosed;
   }
   async #connect() {
     this.response = await fetch("./data.json");
@@ -115,22 +115,25 @@ class template {
 }
 
 export class add {
-  constructor(choosed) {
-    this.choosed = choosed;
-    this.api = new apiConnect(choosed);
+  constructor() {
+    this.choosed;
+    this.api = new apiConnect();
     this.template = new template();
   }
   async destination() {
+    this.api.choosed = this.choosed;
     this.data = await this.api.destination();
     this.template.destination(this.data);
   }
   async crew() {
+    template.crewId = 0;
     this.data = await this.api.crew();
     this.data.forEach((cr) => {
       this.template.crew(cr);
     });
   }
   async technology() {
+    template.techId = 0;
     this.data = await this.api.technology();
     this.data.forEach((tech) => {
       this.template.technology(tech);

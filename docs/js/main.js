@@ -2,7 +2,7 @@ import { add } from "./classes.js";
 let page = document.body.dataset.page;
 let navLinks = [...document.querySelectorAll("nav a")];
 let bars = document.querySelector(".bars");
-
+let app = new add();
 if (localStorage["page"]) {
   page = localStorage["page"];
   navLinks.forEach((ele) => {
@@ -13,28 +13,35 @@ if (localStorage["page"]) {
     }
   });
   document.body.dataset.page = page;
+  techOrCrewFill(page);
 }
 // navbar events
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-    // change active class
-    navLinks.forEach((a) => {
-      a.classList.remove("active");
-    });
-    e.currentTarget.classList.add("active");
+    let active = navLinks.find((ele) => ele.classList.contains("active"));
+    if (active !== e.currentTarget) {
+      // change active class
+      navLinks.forEach((a) => {
+        a.classList.remove("active");
+      });
+      e.currentTarget.classList.add("active");
 
-    // change page
-    page = e.currentTarget.dataset.page;
-    document.body.dataset.page = page;
+      // change page
+      page = e.currentTarget.dataset.page;
+      document.body.dataset.page = page;
 
-    // remove active class from bars to hide nav
-    if (bars.classList.contains("active")) {
-      bars.classList.remove("active");
+      // remove active class from bars to hide nav
+      if (bars.classList.contains("active")) {
+        bars.classList.remove("active");
+      }
+
+      // add to localstorage
+      localStorage["page"] = page;
+
+      // fill crew or tech page
+      techOrCrewFill(page);
     }
-
-    // add to localstorage
-    localStorage["page"] = page;
   });
 });
 
@@ -52,36 +59,54 @@ bars.querySelector(".close").addEventListener("click", (e) => {
 
 // change page content on tab change
 let tabs = [...document.querySelectorAll(".tabs li")];
-tabs.forEach((tab) => {
+tabs.forEach(async (tab) => {
   if (tab.classList.contains("active")) {
-    let addApp = new add(tab.dataset.dest);
-    addApp.destination();
+    app.choosed = tab.dataset.dest;
+    app.destination();
   }
   tab.addEventListener("click", (e) => {
     tabs.forEach((tab) => tab.classList.remove("active"));
     e.currentTarget.classList.add("active");
-    let addApp = new add(e.currentTarget.dataset.dest);
-    addApp.destination();
+    app.choosed = e.currentTarget.dataset.dest;
+    app.destination();
   });
 });
 
-//fill page content on crew page
-let sliders = [...document.querySelectorAll(".crew .slider-1 li")];
-let crewApp = new add();
-let crew = crewApp.crew();
-crew.then(() => {
-  let boxes = [...document.querySelectorAll(".crew :is(.box,.img img)")];
-  slideFunc(boxes, sliders, "crew");
-});
+function techOrCrewFill(page) {
+  let controller;
+  let sliders;
+  techOrCrewEmpty();
+  if (page.toLowerCase() === "technology") {
+    controller = app.technology();
+    sliders = [...document.querySelectorAll(".technology .slider-2 li")];
+  } else if (page.toLowerCase() === "crew") {
+    controller = app.crew();
+    sliders = [...document.querySelectorAll(".crew .slider-1 li")];
+  }
 
-// fill page content of technology page
-let techApp = new add();
-let tech = techApp.technology();
-let sliders2 = [...document.querySelectorAll(".technology .slider-2 li")];
-tech.then(() => {
-  let boxes = [...document.querySelectorAll(".technology .box")];
-  slideFunc(boxes, sliders2, "technology");
-});
+  if (controller) {
+    controller.then(() => {
+      let boxes = [
+        ...document.querySelectorAll(`.${page} [data-name]:not(li)`),
+      ];
+      slideFunc(boxes, sliders, page);
+    });
+  }
+}
+
+function techOrCrewEmpty() {
+  let content = [
+    document.querySelector(".crew .info-cont"),
+    document.querySelector(".technology .content .tech"),
+  ];
+  let imgCont = [
+    document.querySelector(".crew .img"),
+    document.querySelector(".technology .right"),
+  ];
+  [...content, ...imgCont].forEach((ele) => (ele.innerHTML = ""));
+  app = null;
+  app = new add();
+}
 
 function slideFunc(boxes, sliders, page) {
   sliders.forEach((slide) => {

@@ -950,6 +950,7 @@ body[data-page=crew] .crew .container .content .info .info-cont .box, body[data-
   right: 0;
   bottom: 0;
   width: 100%;
+  height: 100%;
 }
 body[data-page=crew] .crew .container .content .info .info-cont .showed.box, body[data-page=crew] .crew .container .content .img img.showed {
   position: static;
