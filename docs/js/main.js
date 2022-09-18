@@ -105,6 +105,7 @@ function techOrCrewEmpty() {
     document.querySelector(".technology .right"),
   ];
   [...content, ...imgCont].forEach((ele) => (ele.innerHTML = ""));
+
   app = null;
   app = new add();
 }
@@ -112,21 +113,20 @@ function techOrCrewEmpty() {
 function slideFunc(boxes, sliders, page) {
   sliders.forEach((slide) => {
     if (slide.classList.contains("active")) {
-      let data = document.querySelectorAll(
-        `.${page} [data-name="${slide.dataset.name}"]:not(li)`
-      );
-      data.forEach((ele) => ele.classList.add("showed"));
+      showData(slide, boxes, sliders);
     }
     slide.addEventListener("click", (e) => {
       showData(e.currentTarget, boxes, sliders);
     });
   });
+
+  // slide by touch
   let start;
   let section = document.querySelector(`.${page}`);
-  section.addEventListener("touchstart", (e) => {
+  section.ontouchstart = (e) => {
     start = e.changedTouches[0].screenX;
-  });
-  section.addEventListener("touchend", (e) => {
+  };
+  section.ontouchend = (e) => {
     let active = sliders.indexOf(
       sliders.find((ele) => ele.classList.contains("active"))
     );
@@ -139,7 +139,7 @@ function slideFunc(boxes, sliders, page) {
         showData(sliders[active - 1], boxes, sliders);
       }
     }
-  });
+  };
 }
 
 function showData(slide, boxes, sliders) {

@@ -104,7 +104,6 @@ class template {
     this.imgCont.append(this.imgBox);
 
     // fill element
-    console.log(tech);
     this.contBox.dataset.name = tech.name;
     this.imgBox.dataset.name = tech.name;
     this.name.innerText = tech.name;
