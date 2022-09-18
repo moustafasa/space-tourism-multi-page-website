@@ -59,6 +59,7 @@ bars.querySelector(".close").addEventListener("click", (e) => {
 });
 
 // change page content on tab change
+
 let tabs = [...document.querySelectorAll(".tabs li")];
 tabs.forEach(async (tab) => {
   if (tab.classList.contains("active")) {
@@ -106,6 +107,8 @@ function techOrCrewEmpty() {
   ];
   [...content, ...imgCont].forEach((ele) => (ele.innerHTML = ""));
 
+  let sections = [...document.querySelectorAll(".crew,.technology")];
+  sections.forEach((ele) => ele.replaceWith(ele.cloneNode(true)));
   app = null;
   app = new add();
 }
