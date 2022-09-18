@@ -1155,7 +1155,7 @@ body[data-page=technology] .technology .container .content .left .tech .box, bod
 }
 @media (max-width: 991px) {
   body[data-page=technology] .technology .container .content .left .tech .box, body[data-page=technology] .technology .right .box {
-    translate: 100vw 0;
+    translate: -100vw 0;
   }
 }
 body[data-page=technology] .technology .container .content .left .tech .showed.box, body[data-page=technology] .technology .right .showed.box {
@@ -1167,7 +1167,7 @@ body[data-page=technology] .technology .container .content .left .tech .slided.b
 }
 @media (max-width: 991px) {
   body[data-page=technology] .technology .container .content .left .tech .slided.box, body[data-page=technology] .technology .right .slided.box {
-    translate: -100vw 0;
+    translate: 100vw 0;
   }
 }
 

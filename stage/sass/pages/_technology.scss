@@ -11,7 +11,7 @@
     translate: 0 100vw;
   }
   @include medias("less small") {
-    translate: 100vw 0;
+    translate: -100vw 0;
   }
   &.showed {
     position: static;
@@ -20,7 +20,7 @@
   &.slided {
     translate: 0 -100vw;
     @include medias("less small") {
-      translate: -100vw 0;
+      translate: 100vw 0;
     }
   }
 }

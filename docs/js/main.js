@@ -40,6 +40,13 @@ navLinks.forEach((link) => {
       // add to localstorage
       localStorage["page"] = page;
 
+      // for test ///////////////
+      /////////////////////
+      app = null;
+      app = new add();
+      ///////////////////////
+      //////////////////////
+      ////////////////////
       // fill crew or tech page
       techOrCrewFill(page);
     }
@@ -133,11 +140,11 @@ function slideFunc(boxes, sliders, page) {
     let active = sliders.indexOf(
       sliders.find((ele) => ele.classList.contains("active"))
     );
-    if (e.changedTouches[0].screenX < start) {
+    if (e.changedTouches[0].screenX > start) {
       if (active < sliders.length - 1) {
         showData(sliders[active + 1], boxes, sliders);
       }
-    } else if (e.changedTouches[0].screenX > start) {
+    } else if (e.changedTouches[0].screenX < start) {
       if (active > 0) {
         showData(sliders[active - 1], boxes, sliders);
       }
