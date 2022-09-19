@@ -155,12 +155,12 @@ function showData(slide, boxes, sliders) {
   slide.classList.add("active");
   boxes.forEach((box) => {
     box.classList.remove("showed");
-    if (box.id == slide.id) {
+    if (box.dataset.id == slide.dataset.id) {
       box.classList.remove("slided");
       box.classList.add("showed");
-    } else if (box.id < slide.id) {
+    } else if (box.dataset.id < slide.dataset.id) {
       box.classList.add("slided");
-    } else if (box.id > slide.id) {
+    } else if (box.dataset.id > slide.dataset.id) {
       box.classList.remove("slided");
     }
   });

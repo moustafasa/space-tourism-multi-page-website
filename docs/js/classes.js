@@ -53,7 +53,7 @@ class template {
     // create elements
     this.box = document.createElement("div");
     this.box.classList.add("box");
-    this.box.id = template.crewId;
+    this.box.dataset.id = template.crewId;
     this.role = document.createElement("span");
     this.role.classList.add("role", ".f-600");
     this.name = document.createElement("h2");
@@ -62,7 +62,7 @@ class template {
     this.bio.classList.add("bio", "f-400");
     this.img = document.createElement("img");
     this.img.classList.add("box");
-    this.img.id = template.crewId++;
+    this.img.dataset.id = template.crewId++;
     // append elements
     this.box.append(this.role, this.name, this.bio);
     this.content.append(this.box);
@@ -82,7 +82,7 @@ class template {
     // create elements
     this.contBox = document.createElement("div");
     this.contBox.classList.add("box");
-    this.contBox.id = template.techId;
+    this.contBox.dataset.id = template.techId;
     this.span = document.createElement("span");
     this.span.classList.add(".f-300", ".open-sent");
     this.name = document.createElement("h2");
@@ -91,7 +91,7 @@ class template {
     this.desc.classList.add("f-400", "description");
     this.imgBox = document.createElement("div");
     this.imgBox.classList.add("box");
-    this.imgBox.id = template.techId++;
+    this.imgBox.dataset.id = template.techId++;
     this.large = document.createElement("img");
     this.large.classList.add("large");
     this.mobile = document.createElement("img");
