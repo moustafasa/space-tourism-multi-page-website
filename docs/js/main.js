@@ -95,9 +95,7 @@ function techOrCrewFill(page) {
 
   if (controller) {
     controller.then(() => {
-      let boxes = [
-        ...document.querySelectorAll(`.${page} [data-name]:not(li)`),
-      ];
+      let boxes = [...document.querySelectorAll(`.${page} .box:not(li)`)];
       slideFunc(boxes, sliders, page);
     });
   }

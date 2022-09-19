@@ -61,6 +61,7 @@ class template {
     this.bio = document.createElement("p");
     this.bio.classList.add("bio", "f-400");
     this.img = document.createElement("img");
+    this.img.classList.add("box");
     this.img.id = template.crewId++;
     // append elements
     this.box.append(this.role, this.name, this.bio);
@@ -71,8 +72,7 @@ class template {
     this.role.innerText = data.role;
     this.name.innerText = data.name;
     this.bio.innerText = data.bio;
-    this.box.dataset.name = data.name;
-    this.img.dataset.name = data.name;
+
     this.img.src = data.images.png;
   }
   technology(tech) {
@@ -104,8 +104,7 @@ class template {
     this.imgCont.append(this.imgBox);
 
     // fill element
-    this.contBox.dataset.name = tech.name;
-    this.imgBox.dataset.name = tech.name;
+
     this.name.innerText = tech.name;
     this.large.src = tech.images.portrait;
     this.mobile.src = tech.images.landscape;
