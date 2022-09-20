@@ -36,12 +36,17 @@ body[data-page="home"] {
       color: rgb($second-color);
     }
     .left {
-      p.first {
-        text-transform: uppercase;
-      }
       h1 {
-        margin-block: 16px;
-        text-transform: uppercase;
+        span {
+          display: block;
+        }
+        span.first-sent {
+          text-transform: uppercase;
+        }
+        span.space {
+          margin-block: 16px;
+          text-transform: uppercase;
+        }
       }
       p.body {
         max-width: 444px;

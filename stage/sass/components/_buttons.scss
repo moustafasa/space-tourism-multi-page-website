@@ -3,11 +3,17 @@
 @use "../variables/fonts" as *;
 @use "../components/fonts" as *;
 
+li {
+  a {
+    color: inherit;
+  }
+}
 %nav {
   display: flex;
   justify-content: center;
-  a,
-  li {
+
+  > a,
+  > li {
     display: block;
     text-transform: uppercase;
     position: relative;
@@ -75,6 +81,7 @@ nav {
 }
 .tabs {
   @extend %nav;
+
   li {
     cursor: pointer;
     padding: 12px 3px;
@@ -87,11 +94,12 @@ nav {
   }
 }
 .main-btn {
+  border: none;
+  outline: none;
   background-color: rgb($white-color);
   color: rgb($first-color);
   text-transform: uppercase;
   position: relative;
-  // z-index: 1;
   transition: 0.5s;
   cursor: pointer;
   @include circle(274px);

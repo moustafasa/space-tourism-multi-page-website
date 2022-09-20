@@ -254,6 +254,9 @@ header .container h1 {
   font-weight: 400;
 }
 header .bars {
+  background-color: transparent;
+  border: none;
+  outline: none;
   z-index: 10000;
   cursor: pointer;
 }
@@ -491,21 +494,25 @@ header nav::after {
   letter-spacing: 2.35px;
 }
 
+li a {
+  color: inherit;
+}
+
 .tabs, nav {
   display: flex;
   justify-content: center;
 }
-.tabs a, nav a,
-.tabs li,
-nav li {
+.tabs > a, nav > a,
+.tabs > li,
+nav > li {
   display: block;
   text-transform: uppercase;
   position: relative;
   color: rgb(255, 255, 255);
 }
-.tabs a::after, nav a::after,
-.tabs li::after,
-nav li::after {
+.tabs > a::after, nav > a::after,
+.tabs > li::after,
+nav > li::after {
   content: "";
   transition: 0.5s;
   position: absolute;
@@ -516,14 +523,14 @@ nav li::after {
   bottom: 0;
   opacity: 0;
 }
-.tabs a.active::after, nav a.active::after,
-.tabs li.active::after,
-nav li.active::after {
+.tabs > a.active::after, nav > a.active::after,
+.tabs > li.active::after,
+nav > li.active::after {
   opacity: 1;
 }
-.tabs a:hover:after, nav a:hover:after,
-.tabs li:hover:after,
-nav li:hover:after {
+.tabs > a:hover:after, nav > a:hover:after,
+.tabs > li:hover:after,
+nav > li:hover:after {
   opacity: 50.21%;
 }
 
@@ -593,6 +600,8 @@ nav a:not(:last-of-type) {
 }
 
 .main-btn {
+  border: none;
+  outline: none;
   background-color: rgb(255, 255, 255);
   color: rgb(11, 13, 23);
   text-transform: uppercase;
@@ -762,10 +771,13 @@ body[data-page=home] .container p {
   margin: 0;
   color: rgb(208, 214, 249);
 }
-body[data-page=home] .container .left p.first {
+body[data-page=home] .container .left h1 span {
+  display: block;
+}
+body[data-page=home] .container .left h1 span.first-sent {
   text-transform: uppercase;
 }
-body[data-page=home] .container .left h1 {
+body[data-page=home] .container .left h1 span.space {
   margin-block: 16px;
   text-transform: uppercase;
 }

@@ -74,6 +74,9 @@ header {
     }
   }
   .bars {
+    background-color: transparent;
+    border: none;
+    outline: none;
     z-index: 10000;
     cursor: pointer;
     @include global.medias("more mobile") {
